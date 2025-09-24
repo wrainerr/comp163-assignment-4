@@ -15,8 +15,10 @@ print(f"Your current stress level is (on a scale of 0 - 100): {stress_levels}")
 #end of step 1
 
 #Beginning of step 2
+print()
 print("Hello. Please enter your current gpa (more than 0.0 and less than 4.0) to receive a course load recommendation.")
 current_gpa = float(input())
+print()
 
 if current_gpa >= 3.7:
     study_hours = 25 #smart student gets heavy course load recommended
@@ -71,3 +73,55 @@ else:
     print()
 #end of step 3
 
+#beginning of step 4
+# default ending message that will be used if no special ending is triggered (for the resilient path)
+status_message_template = "Your journey shows that learning is about growth and being able to adapt. Keep exploring, keep growing, and you will achieve great things."
+
+# This variable will hold the final message. the default value is the template above
+final_message = status_message_template
+
+print("You are now at the final stage of your academic journey. Let's review your path.")
+print()
+
+if(recommended_credits == 18):
+    print("You chose a heavy course load. Good luck!")
+    if user_choice == "Programming" and current_gpa >= 3.7:
+        print("Your high GPA and focus on a challenging subject show great potential.")
+    else:
+        print("Managing a heavy load requires discipline. Stay focused.")
+elif recommended_credits == 15:
+        print("You chose a standard, balanced course load.")
+else:
+    print("You chose a light course load, making sure your foundations are solid.")
+
+#now for the three endings:
+
+print("\nChoosing your final outcome...")
+print()
+    
+# Ending 1: Exceptional achievement
+if current_gpa >= 3.7 and recommended_credits == 18 and user_choice == "Programming":
+    final_message = "The Exceptional Achiever! Your dedication to a heavy course load, combined with a focus on a high-demand subject and an outstanding GPA, points to an incredibly successful academic career. You are a great student!"
+
+# Ending 2: Balanced success
+elif current_gpa >= 2.8 and social_points >= 50 and recommended_credits == 15:
+    final_message = "The Well-Rounded Success! You've found the perfect balance between academics and social life. Your solid GPA, active social engagement, and balanced course load mean you are on track for a fulfilling and successful experience. Well done!"
+
+# this checks if the final_message variable is still the exact same object as the template. if it is, it chooses the resilient path (default path)
+if final_message is status_message_template:
+    print("\n*** The Resilient Path! ***")
+else:
+    # If the variables are not the same object, it means a new message was assigned
+    if "Exceptional" in final_message:
+        print("\n*** The Exceptional Achiever! ***")
+    elif "Well-Rounded" in final_message:
+        print("\n*** The Well-Rounded Success! ***")
+
+print(final_message)
+
+    # final stats
+print("\n--- Final Statistics ---")
+print(f"Final GPA: {current_gpa}")
+print(f"Final Social Points: {social_points}")
+print(f"Selected Course Credits: {recommended_credits}")
+print(f"Subject of Focus: {user_choice}")
