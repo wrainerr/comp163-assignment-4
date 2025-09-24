@@ -43,4 +43,4 @@ The simulation has three distinct endings, each representing a different path to
 
 AI Assistance
 
-AI assistance was used to generate README.md file. (Specifically Google Gemini 2.5 Flash)
+AI assistance was used to generate README.md file. (Specifically Google Gemini 2.5 Flash) 
