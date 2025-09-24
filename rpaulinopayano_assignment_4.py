@@ -30,8 +30,44 @@ else:
     study_hours = 10 #low intelligence student gets low course load
     stress_levels = 20
     recommended_credits = 12
-    
+
 print(f"Based on your GPA of {current_gpa} we recommend the following:")
 print(f"Recommended course load: {recommended_credits} credits")
 print(f"Estimated Weekly Study Hours: {study_hours}")
 print(f"Estimated Stress level based on course load: {stress_levels}")
+print()
+#end of step 2
+
+#beginning of step 3
+study_options = ["Programming", "Math", "English", "History"]
+
+print(f"Available subjects for the study session: {study_options}")
+user_choice = input("Which subject do you want to focus on? ")
+
+if user_choice in study_options:
+        print(f"\nGood choice! Focusing on {user_choice} is a great idea.")
+        
+        # if statements for study strategy
+        if user_choice == "Programming" and current_gpa >= 3.5:
+            # high achieving student with hard subject
+            print("Given your high GPA, consider going into a difficult topic or starting a new project.")
+            print("You are in a good position to do great!")
+        
+        elif current_gpa < 2.5 or social_points < 50:
+            # if gpa is low or social life is low, recommend a balance of both
+            print("A balanced approach is key. You should dedicate solid study time to this subject,")
+            print("but also remember to take breaks and recharge.")
+        
+        elif not (current_gpa < 3.0 and social_points > 70):
+            # If not (low GPA AND high social points)  suggest a productive study session
+            print("you have a good balance. A focused and productive study session is recommended")
+
+        else:
+            # Fallback for other combinations
+            print("This is a good plan. Keep up the good work!")       
+else:
+    #Invalid choice
+    print("\nthat subject is not on the list. Please choose one from the available options")
+    print()
+#end of step 3
+
