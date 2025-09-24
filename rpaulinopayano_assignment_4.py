@@ -1,6 +1,6 @@
 #beginning of step 1
 student_name = "Rayner Paulino-Payano"
-current_gpa = 0.00
+current_gpa = 3.00
 study_hours = 20
 social_points = 50
 stress_levels = 30
@@ -12,37 +12,54 @@ print(f"Your current gpa is: {current_gpa}")
 print(f"The number of hours you study per week is: {study_hours}")
 print(f"Your number of social points is (on a scale of 0 -100): {social_points}")
 print(f"Your current stress level is (on a scale of 0 - 100): {stress_levels}")
+print()
 #end of step 1
 
 #Beginning of step 2
-print()
-print("Hello. Please enter your current gpa (more than 0.0 and less than 4.0) to receive a course load recommendation.")
-current_gpa = float(input())
-print()
+print("Choose your course load:")
+print("A) Light (12 credits)")
+print("B) Standard (15 credits)")
+print("C) Heavy (18 credits)")
+print("D) Double Major (21 credits)")
+choice = input("Your choice: ")
 
-if current_gpa >= 3.7:
-    study_hours = 25 #smart student gets heavy course load recommended
-    stress_levels = 100
-    recommended_credits = 18
-elif current_gpa >= 2.8:
-    study_hours = 20 #average level student gets regular couse load
-    stress_levels = 50
-    recommended_credits = 15
-else:
-    study_hours = 10 #low intelligence student gets low course load
-    stress_levels = 20
+if choice == "A":
     recommended_credits = 12
+    study_hours = 15
+    stress_level = 20
+    print("You've chosen a light course load. This will allow for more time outside of academics.")
+elif choice == "B":
+    recommended_credits = 15
+    study_hours = 20
+    stress_level = 50
+    print("A standard course load is a balanced choice for a typical semester.")
+elif choice == "C":
+    recommended_credits = 18
+    study_hours = 30
+    stress_level = 80
+    print("This is a heavy course load. Be prepared for a significant time commitment.")
+elif choice == "D":
+    recommended_credits = 21
+    study_hours = 45
+    stress_level = 100
+    print("A double major load is very demanding and will challenge your time management skills.")
+else:
+    # handle invalid input
+    print("Invalid choice. Please select 'A', 'B', 'C', or 'D' to continue.")
+    recommended_credits = 0 # Set to a value that will indicate an error or non-choice.
 
-print(f"Based on your GPA of {current_gpa} we recommend the following:")
-print(f"Recommended course load: {recommended_credits} credits")
-print(f"Estimated Weekly Study Hours: {study_hours}")
-print(f"Estimated Stress level based on course load: {stress_levels}")
-print()
+#  the outcome of Step 2
+if recommended_credits != 0:
+    print(f"\nBased on your choice, your estimated stats are now:")
+    print(f"Recommended course load: {recommended_credits} credits")
+    print(f"Estimated Weekly Study Hours: {study_hours}")
+    print(f"Estimated Stress Level: {stress_level}")
 #end of step 2
 
 #beginning of step 3
 study_options = ["Programming", "Math", "English", "History"]
 
+print()
 print(f"Available subjects for the study session: {study_options}")
 user_choice = input("Which subject do you want to focus on? ")
 
@@ -112,9 +129,9 @@ if final_message is status_message_template:
     print("\n*** The Resilient Path! ***")
 else:
     # If the variables are not the same object, it means a new message was assigned
-    if "Exceptional" in final_message:
+    if not("Exceptional" not in final_message):
         print("\n*** The Exceptional Achiever! ***")
-    elif "Well-Rounded" in final_message:
+    elif not("Well-Rounded" not in final_message):
         print("\n*** The Well-Rounded Success! ***")
 
 print(final_message)
