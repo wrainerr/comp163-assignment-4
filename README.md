@@ -1,6 +1,7 @@
 Academic Journey Simulator
 
 This project is a text-based, interactive console application that simulates a student's academic journey through a series of key decisions. Based on choices related to course load and study strategy, the program calculates and presents a final outcome, complete with a statistical summary. The core theme is to explore how different academic and social choices can lead to a variety of successful outcomes.
+
 Branching Concepts Demonstrated
 
 This simulator is built around a series of branching concepts to create a dynamic and personalized experience for the user. Each step of the program demonstrates specific Python principles:
